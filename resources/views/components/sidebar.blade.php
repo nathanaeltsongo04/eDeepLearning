@@ -9,9 +9,11 @@
         </a>
       </li><!-- End Dashboard Nav -->
 
+      <li class="nav-heading">Main</li>
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('students.index') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-people"></i>
           <span>Students</span>
         </a>
       </li><!-- End Students Page Nav -->
@@ -23,93 +25,32 @@
       </li><!-- End Lecturers Page Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('courses.index') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-card-text"></i>
           <span>Courses</span>
         </a>
       </li><!-- End Lecturers Page Nav -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ route('enrollments.index') }}">
-          <i class="bi bi-person"></i>
+          <i class="bi bi-card-checklist"></i>
           <span>Enrollments</span>
         </a>
       </li><!-- End Lecturers Page Nav -->
+
+      <li class="nav-heading">Others</li>
+
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed" href="">
+          <i class="bi bi-person-circle"></i>
+          <span>Users</span>
         </a>
-        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>List</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-accordion.html">
-              <i class="bi bi-circle"></i><span>Accordion</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-badges.html">
-              <i class="bi bi-circle"></i><span>Badges</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-breadcrumbs.html">
-              <i class="bi bi-circle"></i><span>Breadcrumbs</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-buttons.html">
-              <i class="bi bi-circle"></i><span>Buttons</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-cards.html">
-              <i class="bi bi-circle"></i><span>Cards</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-carousel.html">
-              <i class="bi bi-circle"></i><span>Carousel</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-list-group.html">
-              <i class="bi bi-circle"></i><span>List group</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-modal.html">
-              <i class="bi bi-circle"></i><span>Modal</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tabs.html">
-              <i class="bi bi-circle"></i><span>Tabs</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-pagination.html">
-              <i class="bi bi-circle"></i><span>Pagination</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-progress.html">
-              <i class="bi bi-circle"></i><span>Progress</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-spinners.html">
-              <i class="bi bi-circle"></i><span>Spinners</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tooltips.html">
-              <i class="bi bi-circle"></i><span>Tooltips</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Courses Page Nav -->
+      </li><!-- End Users Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="">
+          <i class="bi bi-key"></i>
+          <span>Roles</span>
+        </a>
+      </li><!-- End Users Page Nav -->
     </ul>
 
   </aside>
