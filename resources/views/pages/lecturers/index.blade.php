@@ -91,8 +91,6 @@
                 <form method="POST" id="lecturerForm" action="{{ route('lecturers.store') }}">
                     @csrf
                     <!-- Champs de formulaire -->
-
-
                     <div class="col-md-12 mb-4">
                         <div class="input-group has-validation">
                             <input type="text" name="name" class="form-control" id="name" placeholder="names" required>

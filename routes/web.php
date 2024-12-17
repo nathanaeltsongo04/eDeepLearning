@@ -10,34 +10,38 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('students')->controller(StudentController::class)->group(function () {
-    Route::get('/', 'index')->name('students.index'); // Correspond à /students
-    Route::post('/', 'store')->name('students.store'); // Correspond à /students
-    Route::put('/{student}', 'update')->name('students.update'); // Correspond à /students/{student}
-    Route::delete('/{student}', 'destroy')->name('students.destroy'); // Correspond à /students/{student}
-});
-Route::prefix('courses')->controller(CourseController::class)->group(function () {
-    Route::get('/', 'index')->name('courses.index');
-    Route::post('/', 'store')->name('courses.store');
-    Route::put('/{course}', 'update')->name('courses.update');
-    Route::delete('/{course}', 'destroy')->name('courses.destroy');
+// Routes pour les étudiants
+Route::prefix('students')->name('students.')->controller(StudentController::class)->group(function () {
+    Route::get('/', 'index')->name('index'); // GET /students
+    Route::post('/', 'store')->name('store'); // POST /students
+    Route::put('/{student}', 'update')->name('update'); // PUT /students/{student}
+    Route::delete('/{student}', 'destroy')->name('destroy'); // DELETE /students/{student}
 });
 
-Route::prefix('lecturers')->controller(LecturerController::class)->group(function () {
-    Route::get('/', 'index')->name('lecturers.index'); // Correspond à /lecturers
-    Route::post('/', 'store')->name('lecturers.store'); // Correspond à /lecturers
-    Route::Put('/{lecturer}', 'update')->name('lecturers.update'); // Correspond à /lecturers/{lecturer}
-    Route::delete('/{lecturer}', 'destroy')->name('lecturers.destroy'); // Correspond à /lecturers/{lecturer}
+// Routes pour les cours
+Route::prefix('courses')->name('courses.')->controller(CourseController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::post('/', 'store')->name('store');
+    Route::put('/{course}', 'update')->name('update');
+    Route::delete('/{course}', 'destroy')->name('destroy');
 });
 
-Route::prefix('enrollments')->controller(EnrollmentController::class)->group(function () {
-    Route::get('/', 'index')->name('enrollments.index');
-    Route::post('/', 'store')->name('enrollments.store');
-    Route::put('/{enrollment}', 'update')->name('enrollments.update');
-    Route::delete('/{enrollment}', 'destroy')->name('enrollments.destroy');
+// Routes pour les enseignants
+Route::prefix('lecturers')->name('lecturers.')->controller(LecturerController::class)->group(function () {
+    Route::get('/', 'index')->name('index'); // GET /lecturers
+    Route::post('/', 'store')->name('store'); // POST /lecturers
+    Route::put('/{lecturer}', 'update')->name('update'); // PUT /lecturers/{lecturer}
+    Route::delete('/{lecturer}', 'destroy')->name('destroy'); // DELETE /lecturers/{lecturer}
+});
+
+// Routes pour les inscriptions
+Route::prefix('enrollments')->name('enrollments.')->controller(EnrollmentController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+    Route::post('/', 'store')->name('store');
+    Route::put('/{enrollment}', 'update')->name('update');
+    Route::delete('/{enrollment}', 'destroy')->name('destroy');
 });
