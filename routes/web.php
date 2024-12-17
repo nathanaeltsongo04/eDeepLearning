@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\LecturerController;
 use App\Http\Controllers\StudentController;
+use App\Models\Enrollment;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -30,4 +33,11 @@ Route::prefix('lecturers')->controller(LecturerController::class)->group(functio
     Route::post('/', 'store')->name('lecturers.store'); // Correspond à /lecturers
     Route::Put('/{lecturer}', 'update')->name('lecturers.update'); // Correspond à /lecturers/{lecturer}
     Route::delete('/{lecturer}', 'destroy')->name('lecturers.destroy'); // Correspond à /lecturers/{lecturer}
+});
+
+Route::prefix('enrollments')->controller(EnrollmentController::class)->group(function () {
+    Route::get('/', 'index')->name('enrollments.index');
+    Route::post('/', 'store')->name('enrollments.store');
+    Route::put('/{enrollment}', 'update')->name('enrollments.update');
+    Route::delete('/{enrollment}', 'destroy')->name('enrollments.destroy');
 });
