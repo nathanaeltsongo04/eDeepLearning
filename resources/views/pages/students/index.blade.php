@@ -115,7 +115,7 @@
 
                     <!-- Bouton pour soumettre -->
                     <div class="col-md-12 text-center">
-                        <button name="save" class="btn btn-secondary w-50 fw-bold" type="submit" id="submitBtn">Enregistrer</button>
+                        <button name="save" class="btn btn-secondary w-50 fw-bold" type="submit" id="submitBtn">Save</button>
                     </div>
                 </form>
             </div>

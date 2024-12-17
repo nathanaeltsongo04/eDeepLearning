@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Enrollment;
 use App\Models\Student;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -40,4 +41,8 @@ class Course extends Model
     {
         return $this->belongsToMany(Student::class, 'Enrollments', 'course_id', 'student_id');
     }
+
+    use HasFactory;
+
+    protected $fillable= ['title', 'lecturer_id', 'description'];
 }

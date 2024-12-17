@@ -16,9 +16,15 @@
         </a>
       </li><!-- End Students Page Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('/Lecturers') }}">
+        <a class="nav-link collapsed" href="{{ route('lecturers.index') }}">
           <i class="bi bi-person"></i>
           <span>Lectures</span>
+        </a>
+      </li><!-- End Lecturers Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('courses.index') }}">
+          <i class="bi bi-person"></i>
+          <span>Courses</span>
         </a>
       </li><!-- End Lecturers Page Nav -->
       <li class="nav-item">
