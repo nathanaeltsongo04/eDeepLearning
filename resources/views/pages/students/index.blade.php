@@ -1,21 +1,24 @@
 @extends('layout.base')
 @section('content')
 
-@if (session('success'))
+
+@session('success')
+    <!-- Inclure le CDN SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Script SweetAlert2 pour afficher l'alerte -->
     <script>
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: '{{ session('success') }}',  // Affiche le message de session
-            showConfirmButton: false,
-            timer: 2800
-        }).then(function() {
-            location.replace('{{ route('students.index') }}');  // Redirection
+        document.addEventListener('DOMContentLoaded', function () {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: '{{ session('success') }}',  // Récupérer le message de session
+                showConfirmButton: false,
+                timer: 2800
+            });
         });
     </script>
-@endif
-
-
+@endsession
 
 <div class="col-12">
     <div class="card recent-sales overflow-auto">

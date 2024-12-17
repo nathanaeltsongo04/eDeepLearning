@@ -42,6 +42,6 @@ class StudentController extends Controller
         $student->update($validatedData);
 
         // Redirect back with success message
-        return redirect()->route('students.index')->with('message', 'Student updated successfully!');
+        return redirect()->route('students.index')->with('success', 'Student updated successfully!');
     }
 }
