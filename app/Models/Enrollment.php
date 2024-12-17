@@ -7,7 +7,7 @@ use App\Models\Student;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Enrollement extends Model
+class Enrollment extends Model
 {
     /**
      * Get the student that owns the enrollment.

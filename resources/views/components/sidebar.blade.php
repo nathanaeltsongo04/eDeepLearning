@@ -10,7 +10,7 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('/Students') }}">
+        <a class="nav-link collapsed" href="{{ route('students.index') }}">
           <i class="bi bi-person"></i>
           <span>Students</span>
         </a>

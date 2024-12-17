@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Enrollement;
+use App\Models\Enrollment;
 use App\Models\Student;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -22,13 +22,13 @@ class Course extends Model
     }
 
     /**
-     * Get all of the Enrollement for the Course
+     * Get all of the Enrollment for the Course
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function Enrollement(): HasMany
+    public function Enrollment(): HasMany
     {
-        return $this->hasMany(Enrollement::class);
+        return $this->hasMany(Enrollment::class);
     }
 
     /**
@@ -38,6 +38,6 @@ class Course extends Model
      */
     public function Student(): BelongsToMany
     {
-        return $this->belongsToMany(Student::class, 'Enrollements', 'course_id', 'student_id');
+        return $this->belongsToMany(Student::class, 'Enrollments', 'course_id', 'student_id');
     }
 }
