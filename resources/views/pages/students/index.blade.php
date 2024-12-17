@@ -1,21 +1,21 @@
 @extends('layout.base')
 @section('content')
 
-@session('message')
-
-        <script>
+@if (session('success'))
+    <script>
         Swal.fire({
             position: 'center',
             icon: 'success',
-            title: '{{ session('message') }}',  // Affiche le message de session
+            title: '{{ session('success') }}',  // Affiche le message de session
             showConfirmButton: false,
             timer: 2800
         }).then(function() {
-            location.replace('{{ route('students.index') }}');  // Utilisation d'une route Laravel pour la redirection
+            location.replace('{{ route('students.index') }}');  // Redirection
         });
     </script>
+@endif
 
-@endsession
+
 
 <div class="col-12">
     <div class="card recent-sales overflow-auto">
@@ -47,9 +47,11 @@
                 <td>{{ $student->birth_date }}</td>
                 <td>{{ $student->email }}</td>
                 <td>
-                    <a href="#" class="text-primary" onclick="openStudentModal({{ json_encode($student) }})">
+                    <a href="#" class="text-primary"onclick="openStudentModal({{ json_encode($student) }})"
+                    data-url="{{ route('students.update', $student->id) }}">
                         <i class="bi bi-pencil-square"></i>
                     </a>
+
 
 
                   <form id="delete-form-{{ $student->id }}" action="{{ route('students.destroy', $student->id) }}" method="POST" style="display:inline;">
@@ -86,6 +88,8 @@
                 <form method="POST" id="studentForm" action="{{ route('students.store') }}">
                     @csrf
                     <!-- Champs de formulaire -->
+                    <input type="hidden" name="id" value="{{ $student->id }}">
+
                     <div class="col-md-12 mb-4">
                         <div class="input-group has-validation">
                             <input type="text" name="name" class="form-control" id="name" placeholder="names" required>
@@ -117,5 +121,43 @@
         </div>
     </div>
 </div>
+
+<script>
+    function openStudentModal(student) {
+        // Pré-remplir les champs du formulaire
+        document.getElementById('name').value = student.name || '';
+        document.getElementById('country').value = student.country || '';
+        document.getElementById('birth_date').value = student.birth_date || '';
+        document.getElementById('email').value = student.email || '';
+
+        // Mettre à jour l'action du formulaire pour l'édition
+        const form = document.getElementById('studentForm');
+        const updateUrl = event.currentTarget.getAttribute('data-url'); // Récupérer l'URL depuis le bouton
+        form.action = updateUrl; // Mettre à jour l'action du formulaire
+        form.method = 'POST';
+
+        // Ajouter le champ hidden pour la méthode PUT
+        let methodField = form.querySelector('input[name="_method"]');
+        if (!methodField) {
+            methodField = document.createElement('input');
+            methodField.type = 'hidden';
+            methodField.name = '_method';
+            methodField.value = 'PUT';
+            form.appendChild(methodField);
+        } else {
+            methodField.value = 'PUT'; // Mettre à jour la valeur existante
+        }
+
+        // Mettre à jour le titre et le bouton du modal
+        document.getElementById('modalTitle').innerText = "Update Student";
+        document.getElementById('submitBtn').innerText = "Update";
+
+        // Ouvrir le modal
+        const modal = new bootstrap.Modal(document.getElementById('studentModal'));
+        modal.show();
+    }
+</script>
+
+
 
 @endsection

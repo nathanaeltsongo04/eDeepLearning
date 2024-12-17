@@ -29,17 +29,17 @@ class StudentController extends Controller
         return redirect(route('students.index'))->with('success', 'Student deleted successfully');
     }
 
-    public function update(Student $student){
+    public function update(Request $request, Student $student){
         // Validate the incoming data
-        $validated = $student->validate([
+        $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'country' => 'required|string|max:255',
             'birth_date' => 'required|date',
-            'email' => 'required|email|max:255',
+            'email' => 'required|email|unique:students,email,' . $student->id,
         ]);
 
         // Update the student
-        $student->update($validated);
+        $student->update($validatedData);
 
         // Redirect back with success message
         return redirect()->route('students.index')->with('message', 'Student updated successfully!');
