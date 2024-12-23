@@ -19,5 +19,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
+
+        User::find(1)->update(['role_id' => 3]);
     }
 }

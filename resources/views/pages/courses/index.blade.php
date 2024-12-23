@@ -23,9 +23,11 @@
 <div class="col-12">
     <div class="card recent-sales overflow-auto">
 
-      <div class="filter">
-        <a class="icon " data-bs-toggle="modal" data-bs-target="#courseModal"><i class="bi bi-person-plus-fill fs-5"></i></a>
-      </div>
+      @if (auth()->user()->role->name === 'admin')
+        <div class="filter">
+            <a class="icon " data-bs-toggle="modal" data-bs-target="#courseModal"><i class="bi bi-person-plus-fill fs-5"></i></a>
+        </div>
+      @endif
 
       <div class="card-body">
         <h5 class="card-title">courses <span>| List </span></h5>
@@ -37,7 +39,9 @@
               <th scope="col">Title</th>
               <th scope="col">Lecturer</th>
               <th scope="col">Description</th>
+              @if (auth()->user()->role->name === 'admin')
               <th scope="col">Actions</th>
+              @endif
             </tr>
           </thead>
           <tbody>
@@ -49,22 +53,19 @@
                 <td><a class="text-primary">{{ $course->description }}</a></td>
 
                 <td>
-                    <a href="#" class="text-primary" onclick="opencourseModal({{ json_encode($course) }})"
-                    data-url="{{ route('courses.update', $course->id) }}">
-                        <i class="bi bi-pencil-square"></i>
-                    </a>
-
-
-
-                  <form id="delete-form-{{ $course->id }}" action="{{ route('courses.destroy', $course->id) }}" method="POST" style="display:inline;">
-                    @csrf
-                    @method('DELETE')
-                    <a href="#" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $course->id }}').submit();" class="text-danger">
-                        <i class="bi bi-trash"></i>
-                    </a>
-                  </form>
-
-
+                    @if (auth()->user()->role->name === 'admin')
+                        <a href="#" class="text-primary" onclick="opencourseModal({{ json_encode($course) }})"
+                        data-url="{{ route('courses.update', $course->id) }}">
+                            <i class="bi bi-pencil-square"></i>
+                        </a>
+                        <form id="delete-form-{{ $course->id }}" action="{{ route('courses.destroy', $course->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <a href="#" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $course->id }}').submit();" class="text-danger">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </form>
+                    @endif
                 </td>
               </tr>
 

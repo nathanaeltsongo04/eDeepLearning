@@ -3,16 +3,21 @@
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\LecturerController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StudentController;
 use App\Models\Enrollment;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
 
 
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
+
 
 // Routes pour les étudiants
 Route::prefix('students')->name('students.')->controller(StudentController::class)->group(function () {
@@ -45,3 +50,11 @@ Route::prefix('enrollments')->name('enrollments.')->controller(EnrollmentControl
     Route::put('/{enrollment}', 'update')->name('update');
     Route::delete('/{enrollment}', 'destroy')->name('destroy');
 });
+
+Route::prefix('role')->name('roles.')->controller(RoleController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
