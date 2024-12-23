@@ -22,6 +22,12 @@
           <span>Courses</span>
         </a>
       </li><!-- End Lecturers Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{ route('enrollments.mycourses') }}">
+          <i class="bi bi-list-ol "></i>
+          <span>My Courses</span>
+        </a>
+      </li><!-- End Lecturers Page Nav -->
     </ul>
 
   </aside>
@@ -56,6 +62,12 @@
                 <span>Courses</span>
                 </a>
             </li><!-- End Lecturers Page Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ route('courses.index') }}">
+                  <i class="bi bi-list-ol "></i>
+                  <span>My Courses</span>
+                </a>
+              </li><!-- End My Courses Page Nav -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="{{ route('enrollments.index') }}">
                 <i class="bi bi-card-checklist"></i>

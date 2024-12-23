@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Course;
-use App\Models\Enrollment;
 
+use App\Models\Enrollment;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -42,6 +43,7 @@ class EnrollmentController extends Controller
         return redirect(route('enrollments.index'))->with('success', 'Enrollment updated successfully');
 
     }
+
 
     public function destroy(Enrollment $enrollment){
         $enrollment->delete();

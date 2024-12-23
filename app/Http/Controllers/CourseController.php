@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Lecturer;
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ class CourseController extends Controller
 
         return view('pages.courses.index', compact('courses', 'lecturers'));
     }
+
 
     public function store(){
         $validatedData = request()->validate([
