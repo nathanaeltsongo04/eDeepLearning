@@ -91,7 +91,6 @@
                 <form method="POST" id="studentForm" action="{{ route('students.store') }}">
                     @csrf
                     <!-- Champs de formulaire -->
-                    <input type="hidden" name="id" value="{{ $student->id }}">
 
                     <div class="col-md-12 mb-4">
                         <div class="input-group has-validation">

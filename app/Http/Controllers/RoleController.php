@@ -10,6 +10,6 @@ class RoleController extends Controller
     public function index()
     {
         $roles = Role::all();
-        return view('roles.index',compact('roles'));
+        return view('pages.roles.index',compact('roles'));
     }
 }

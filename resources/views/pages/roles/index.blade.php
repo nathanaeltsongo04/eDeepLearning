@@ -38,7 +38,7 @@
             @foreach ($roles as $role)
             <tr>
                 <th scope="row"><a href="#">{{ $role->id }}</a></th>
-                <td>{{ $role->name ? $role->name : 'N/A' }}</td>
+                <td class="fw-bold">{{ $role->name ? $role->name : 'N/A' }}</td>
                 <td><a class="text-primary">{{ 'N/A' }}</a></td>
               </tr>
 
