@@ -23,7 +23,7 @@
         </a>
       </li><!-- End Lecturers Page Nav -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ route('enrollments.mycourses') }}">
+        <a class="nav-link collapsed" href="">
           <i class="bi bi-list-ol "></i>
           <span>My Courses</span>
         </a>
